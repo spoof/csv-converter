@@ -40,6 +40,13 @@ class CsvConverter(object):
 
         for r, row in enumerate(reader):
             for c, col in enumerate(row):
+                for dtype in (int, float):
+                    try:
+                        col = dtype(col)
+                    except:
+                        pass
+                    else:
+                        break
                 ws.write(r, c, col)
 
         wb.save(xls)
