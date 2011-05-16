@@ -13,6 +13,7 @@ import csv
 import cStringIO
 import getopt
 
+
 help_message = '''Usage: %s [OPTION]... infile.csv outfile.xls
 Converts CSV file to XLS
 Options:
@@ -39,7 +40,7 @@ class CsvConverter(object):
 
         for r, row in enumerate(reader):
             for c, col in enumerate(row):
-                ws.write(r,c, col)
+                ws.write(r, c, col)
 
         wb.save(xls)
         return xls.getvalue()
@@ -47,11 +48,11 @@ class CsvConverter(object):
 if __name__ == "__main__":
     delimiter = " "
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "hd:", ["help",])
+        opts, args = getopt.getopt(sys.argv[1:], "hd:", ["help"])
     except getopt.GetoptError, err:
         print str(err)
         sys.exit(2)
-    
+
     for o, a in opts:
         if o in ("-h", "--help"):
             print help_message
@@ -77,4 +78,3 @@ if __name__ == "__main__":
         sys.exit(2)
 
     sys.exit(0)
-
