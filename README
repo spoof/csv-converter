@@ -1,0 +1,5 @@
+Tool for converting CSV file to XLS
+
+Requirements:
+* Python >= 2.5
+* xlwt
